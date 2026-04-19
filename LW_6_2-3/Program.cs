@@ -8,13 +8,13 @@ class Program
         double x1 = ReadDouble("Enter x: ");
         double y1 = ReadDouble("Enter y: ");
 
-        LineSegment s1 = new LineSegment(x1, y1); // создание первого отрезка
+        LineSegment s1 = new LineSegment(x1, y1);
 
         Console.WriteLine("\nInput second segment:");
         double x2 = ReadDouble("Enter x: ");
         double y2 = ReadDouble("Enter y: ");
 
-        LineSegment s2 = new LineSegment(x2, y2); // создание второго отрезка
+        LineSegment s2 = new LineSegment(x2, y2);
 
         Console.WriteLine("\nSegments:");
         Console.WriteLine(s1);
@@ -24,22 +24,22 @@ class Program
 
         Console.WriteLine("\nLength of s1: " + !s1);
 
-        ++s1; // расширение отрезка
+        ++s1;
         Console.WriteLine("After expanding s1: " + s1);
 
-        int intValue = s1; // неявное преобразование
-        Console.WriteLine("int (x): " + intValue); // вывод x
+        int intValue = s1;
+        Console.WriteLine("int (x): " + intValue);
 
-        double doubleValue = (double)s1; // явное преобразование
-        Console.WriteLine("double (y): " + doubleValue); // вывод y
+        double doubleValue = (double)s1;
+        Console.WriteLine("double (y): " + doubleValue);
 
-        s1 = s1 - 2; // уменьшение x
-        Console.WriteLine("\ns1 - 2: " + s1); // вывод результата
+        s1 = s1 - 2;
+        Console.WriteLine("\ns1 - 2: " + s1);
 
-        s2 = 3 - s2; // уменьшение y
-        Console.WriteLine("3 - s2: " + s2); // вывод результата
+        s2 = 3 - s2;
+        Console.WriteLine("3 - s2: " + s2);
 
-        Console.WriteLine("\nOperator <: " + (s1 < s2)); // проверка через оператор
+        Console.WriteLine("\nOperator <: " + (s1 < s2));
     }
 
     static double ReadDouble(string message)
@@ -51,8 +51,10 @@ class Program
 
             double value;
             if (double.TryParse(input, out value))
+            {    
                 return value;
-
+            }
+            
             Console.WriteLine("Error! Enter a number.");
         }
     }
