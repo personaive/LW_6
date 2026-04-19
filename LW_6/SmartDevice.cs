@@ -1,32 +1,32 @@
 ﻿using System;
 
-public class SmartDevice : Device // дочерний класс
+public class SmartDevice : Device
 {
     private bool _isConnectedToWifi;
 
-    public SmartDevice(bool isOn, bool hasPower,bool isConnectedToWifi) // конструктор с параметрами
+    public SmartDevice(bool isOn, bool hasPower,bool isConnectedToWifi)
         : base(isOn, hasPower)
     {
         _isConnectedToWifi = isConnectedToWifi;
     }
 
-    public SmartDevice(SmartDevice other) // конструктор копирования
+    public SmartDevice(SmartDevice other)
         : base(other)
     {
         _isConnectedToWifi = other._isConnectedToWifi;
     }
 
-    public bool IsOnline() // метод: подключено ли к сети
+    public bool IsOnline()
     {
         return _isConnectedToWifi;
     }
 
-    public bool IsSmartActive() // метод: "умное устройство активно"
+    public bool IsSmartActive()
     {
         return CanWork() && _isConnectedToWifi;
     }
 
-    public void ConnectToWifi() // метод: подключить к Wi-Fi
+    public void ConnectToWifi()
     {
         _isConnectedToWifi = true;
     }
