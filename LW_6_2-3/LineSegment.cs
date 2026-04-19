@@ -1,100 +1,99 @@
 ﻿using System;
 
-public class LineSegment // класс отрезка
+public class LineSegment
 {
     private double x;
     private double y;
 
-    public LineSegment() // конструктор по умолчанию
+    public LineSegment()
     {
         x = 0;
         y = 0;
     }
 
-    public LineSegment(double x, double y) // конструктор с параметрами
+    public LineSegment(double x, double y)
     {
         this.x = x;
         this.y = y;
     }
 
-    public LineSegment(LineSegment segment) // конструктор копирования
+    public LineSegment(LineSegment segment)
     {
         x = segment.x;
         y = segment.y;
     }
 
-    public double X // свойство для x
+    public double X
     {
         get { return x; }
         set { x = value; }
     }
 
-    public double Y // свойство для y
+    public double Y
     {
         get { return y; }
         set { y = value; }
     }
 
-    public bool Intersects(LineSegment segment) // метод проверки пересечения
+    public bool Intersects(LineSegment segment)
     {
-        double start1 = Math.Min(x, y); // начало первого отрезка
-        double end1 = Math.Max(x, y); // конец первого отрезка
+        double start1 = Math.Min(x, y);
+        double end1 = Math.Max(x, y);
 
-        double start2 = Math.Min(segment.x, segment.y); // начало второго отрезка
-        double end2 = Math.Max(segment.x, segment.y); // конец второго отрезка
+        double start2 = Math.Min(segment.x, segment.y);
+        double end2 = Math.Max(segment.x, segment.y);
 
-        return !(end1 < start2 || end2 < start1); // проверка пересечения
+        return !(end1 < start2 || end2 < start1);
     }
 
     public override string ToString()
     {
-        return $"Segment: [{x}; {y}]"; // строковое представление
+        return $"Segment: [{x}; {y}]";
     }
 
     // унарные операторы
-    public static double operator !(LineSegment segment) // оператор ! длина отрезка
+    public static double operator !(LineSegment segment)
     {
-        return Math.Abs(segment.y - segment.x); // вычисление длины
+        return Math.Abs(segment.y - segment.x);
     }
 
-    public static LineSegment operator ++(LineSegment segment) // оператор ++ расширение
+    public static LineSegment operator ++(LineSegment segment)
     {
-        segment.x -= 1; // расширение влево
-        segment.y += 1; // расширение вправо
-        return segment; // возврат результата
+        segment.x -= 1;
+        segment.y += 1;
+        return segment;
     }
 
     // операции приведения типа
-    public static implicit operator int(LineSegment segment) // неявное преобразование в int
+    public static implicit operator int(LineSegment segment)
     {
-        return (int)segment.x; // возврат целой части x
+        return (int)segment.x;
     }
 
-    public static explicit operator double(LineSegment segment) // явное преобразование в double
+    public static explicit operator double(LineSegment segment)
     {
-        return segment.y; // возврат y
+        return segment.y;
     }
 
-    // бинарные операторы
-    public static LineSegment operator -(LineSegment segment, int value) // segment - int
+    public static LineSegment operator -(LineSegment segment, int value)
     {
-        segment.x -= value; // уменьшение x
-        return segment; // возврат результата
+        segment.x -= value;
+        return segment;
     }
 
-    public static LineSegment operator -(int value, LineSegment segment) // int - segment
+    public static LineSegment operator -(int value, LineSegment segment)
     {
-        segment.y -= value; // уменьшение y
-        return segment; // возврат результата
+        segment.y -= value;
+        return segment;
     }
 
-    public static bool operator <(LineSegment a, LineSegment b) // оператор <
+    public static bool operator <(LineSegment a, LineSegment b)
     {
-        return a.Intersects(b); // проверка пересечения
+        return a.Intersects(b);
     }
 
-    public static bool operator >(LineSegment a, LineSegment b) // оператор >
+    public static bool operator >(LineSegment a, LineSegment b)
     {
-        return !a.Intersects(b); // обратная проверка
+        return !a.Intersects(b);
     }
 }
