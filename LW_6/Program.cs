@@ -47,8 +47,10 @@ class Program
             string input = Console.ReadLine();
 
             if (input == "true" || input == "false")
+            {    
                 return bool.Parse(input);
-
+            }
+            
             Console.WriteLine("Error! Input only true or false.");
         }
     }
