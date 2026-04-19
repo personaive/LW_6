@@ -1,28 +1,28 @@
 ﻿using System;
 
-public class Device // класс с двумя логическими полями
+public class Device
 {
     private bool _isOn;
     private bool _hasPower;
 
-    public Device(bool isOn, bool hasPower) // конструктор с параметрами
+    public Device(bool isOn, bool hasPower)
     {
         _isOn = isOn;
         _hasPower = hasPower;
     }
 
-    public Device(Device device) // конструктор копирования
+    public Device(Device device)
     {
         _isOn = device._isOn;
         _hasPower = device._hasPower;
     }
 
-    public bool CanWork() // метод дизъюнкции (логическое ИЛИ)
+    public bool CanWork()
     {
         return _isOn || _hasPower;
     }
 
-    public override string ToString() // перегрузка метода ToString()
+    public override string ToString()
     {
         return $"Turned on: {_isOn}, Receiving power: {_hasPower}";
     }
