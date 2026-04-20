@@ -51,7 +51,6 @@ public class LineSegment
         return $"Segment: [{x}; {y}]";
     }
 
-    // унарные операторы
     public static double operator !(LineSegment segment)
     {
         return Math.Abs(segment.y - segment.x);
@@ -64,7 +63,6 @@ public class LineSegment
         return segment;
     }
 
-    // операции приведения типа
     public static implicit operator int(LineSegment segment)
     {
         return (int)segment.x;
